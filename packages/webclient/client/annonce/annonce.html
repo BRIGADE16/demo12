@@ -1,0 +1,51 @@
+<template name="annonce">
+    <li>{{ annonce.titre}}</li>
+    <li>{{ annonce.description }}</li>
+    <li>{{ annonce.prix }}</li>
+</template>
+
+<template name="createAnnonce">
+    <div>
+        Titre
+        <input type="text" name="titre" id="titre" placeholder="Titre">
+        Description
+        <textarea name="desc" id="desc" placeholder="Description"></textarea>
+        Prix
+        <input type="number" name="prix" id="prix" value="1">
+        <button id="save">save</button>
+    </div>
+</template>
+
+<template name="listannonce">
+    <ul>
+        {{#each list}}
+            <div>
+                <div>
+                    <img>
+
+                </div>
+            </div>
+            <li>{{ titre}}</li>
+            <li>{{ description }}</li>
+            <li>{{ prix }}</li>
+            <a href="{{pathFor 'annonce' id=_id}}">
+                afficher
+            </a>
+            <a href="{{pathFor 'updateAnnonce' id=_id}}">
+                Mise ajour
+            </a>
+        {{/each}}
+    </ul>
+</template>
+
+<template name="updateAnnonce">
+    <div>
+        Titre
+        <input type="text" name="titre" id="titre" placeholder="Titre" value="{{an.titre}}">
+        Description
+        <textarea name="desc" id="desc" placeholder="Description" value="{{an.description}}"></textarea>
+        Prix
+        <input value="{{an.prix}}" type="number" name="prix" id="prix">
+        <button id="save">save</button>
+    </div>
+</template>
